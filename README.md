@@ -1,0 +1,3 @@
+# palettecn
+
+Theme shadcn generator.
