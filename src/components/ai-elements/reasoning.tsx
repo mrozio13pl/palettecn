@@ -1,10 +1,8 @@
 'use client';
 
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
-import { cjk } from '@streamdown/cjk';
 import { code } from '@streamdown/code';
 import { math } from '@streamdown/math';
-import { mermaid } from '@streamdown/mermaid';
 import { BrainIcon, ChevronDownIcon } from 'lucide-react';
 import { createContext, memo, use, useEffect, useState } from 'react';
 import { Streamdown } from 'streamdown';
@@ -190,7 +188,7 @@ export const ReasoningContent = memo(
             )}
             {...props}
         >
-            <Streamdown plugins={{ code, mermaid, math, cjk }} {...props}>
+            <Streamdown plugins={{ code, math }} {...props}>
                 {children}
             </Streamdown>
         </CollapsibleContent>
