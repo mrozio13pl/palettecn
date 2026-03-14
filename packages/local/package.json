@@ -1,0 +1,24 @@
+{
+    "name": "@palettecn/local",
+    "version": "0.0.0",
+    "private": true,
+    "files": [
+        "dist"
+    ],
+    "type": "module",
+    "main": "dist/index.mjs",
+    "types": "dist/index.d.mts",
+    "scripts": {
+        "build": "tsdown",
+        "dev": "tsdown --watch"
+    },
+    "dependencies": {
+        "@palettecn/shared": "workspace:*",
+        "env-paths": "^4.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^25.5.0",
+        "tsdown": "^0.21.2",
+        "typescript": "^5.9.3"
+    }
+}

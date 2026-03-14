@@ -1,0 +1,16 @@
+{
+    "$schema": "./node_modules/oxfmt/configuration_schema.json",
+    "ignorePatterns": [
+        ".turbo",
+        ".output",
+        "dist",
+        "node_modules",
+        "pnpm-lock.yaml",
+        "*.tsbuildinfo",
+        "**/routeTree.gen.ts"
+    ],
+    "tabWidth": 4,
+    "singleQuote": true,
+    "semi": true,
+    "sortPackageJson": {}
+}

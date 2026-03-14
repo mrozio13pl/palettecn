@@ -1,5 +1,8 @@
 onlyBuiltDependencies:
-  - esbuild
-  - sharp
-  - unrs-resolver
-  - workerd
+    - esbuild
+    - sharp
+    - unrs-resolver
+    - workerd
+packages:
+    - 'apps/*'
+    - 'packages/*'
