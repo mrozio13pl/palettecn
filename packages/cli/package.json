@@ -16,6 +16,7 @@
         "dev": "cross-env NODE_ENV=development tsdown --watch"
     },
     "dependencies": {
+        "get-port": "^7.1.0",
         "opener": "^1.5.2"
     },
     "devDependencies": {
