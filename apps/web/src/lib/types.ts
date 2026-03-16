@@ -59,7 +59,7 @@ export interface ModelInfo {
 export type ProviderState =
     | {
           isActive: true;
-          models: ModelInfo[];
+          models: Array<ModelInfo>;
       }
     | {
           isActive: false;

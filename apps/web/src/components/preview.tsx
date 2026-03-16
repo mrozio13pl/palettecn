@@ -19,14 +19,14 @@ export function Preview() {
     const { isSidebarCollapsed } = useThemes();
 
     return (
-        <Tabs defaultValue="landing" className="size-full flex-col">
+        <Tabs defaultValue="landing" className="size-full flex-col overflow-hidden">
             {!isSidebarCollapsed && (
                 <TabsList className="bg-transparent! m-2 gap-4">
                     <GhostTabsTrigger value="landing">Landing Page</GhostTabsTrigger>
                     <GhostTabsTrigger value="components">Components</GhostTabsTrigger>
                 </TabsList>
             )}
-            <TabsContent value="landing" className="size-full">
+            <TabsContent value="landing" className="size-full overflow-x-hidden sm:overflow-hidden">
                 <LandingPage />
             </TabsContent>
             <TabsContent value="components" className="h-full overflow-y-auto sm:pb-20 @container">

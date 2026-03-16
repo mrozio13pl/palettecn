@@ -8,6 +8,12 @@
     "type": "module",
     "main": "dist/index.mjs",
     "types": "dist/index.d.mts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.mjs",
+            "types": "./dist/index.d.mts"
+        }
+    },
     "scripts": {
         "build": "tsdown",
         "dev": "tsdown --watch"

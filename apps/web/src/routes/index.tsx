@@ -65,7 +65,7 @@ function Sidebar() {
     );
 
     return (
-        <div className="size-full flex flex-col">
+        <div className="size-full flex flex-col overflow-hidden">
             <div className="h-16 sm:flex justify-between border-b hidden">
                 <div className="flex items-center gap-2 p-4">
                     <Logo className="size-6 text-primary" />
@@ -152,7 +152,7 @@ function PreviewComponent() {
     } = useThemes();
 
     return (
-        <>
+        <div className="flex flex-col size-full h-full overflow-hidden">
             <header className="size-full p-4 border-b h-16 -mt-2 sm:mt-0 flex items-center justify-between bg-background/20 backdrop-blur-sm">
                 <div className="flex items-center gap-2">
                     {isSidebarCollapsed && <Logo className="size-6 text-primary" />}
@@ -245,10 +245,10 @@ function PreviewComponent() {
                     <ThemeSwitch />
                 </div>
             </header>
-            <div className="size-full p-2">
+            <div className="size-full p-2 overflow-hidden">
                 <Preview />
             </div>
-        </>
+        </div>
     );
 }
 
@@ -302,7 +302,7 @@ function App() {
                 <TabsContent value="editor" className="w-full @container/sidebar">
                     <Sidebar />
                 </TabsContent>
-                <TabsContent value="preview" className="w-full @container">
+                <TabsContent value="preview" className="w-full @container overflow-hidden">
                     <PreviewComponent />
                 </TabsContent>
             </Tabs>

@@ -9,3 +9,9 @@ export function cn(...inputs: Array<ClassValue>) {
 export function capitalize(string: string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+export const isLocal =
+    location?.hostname === 'localhost' ||
+    location?.hostname === '127.0.0.1' ||
+    location?.hostname === '::1' ||
+    location?.hostname.endsWith('.localhost');

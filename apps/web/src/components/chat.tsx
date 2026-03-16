@@ -170,6 +170,8 @@ export const Chat = ({ ref }: { ref: React.RefObject<{ resetChat: () => void } |
                                                 </Reasoning>
                                             );
                                         case 'text':
+                                            if (!part.text.trim()) return null;
+
                                             return (
                                                 <Fragment key={`${message.id}-${i}`}>
                                                     <Message from={message.role}>

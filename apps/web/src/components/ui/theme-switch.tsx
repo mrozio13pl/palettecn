@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { Switch } from '@/components/ui/switch';
 import { cn } from '@/lib/utils';
 import { useThemes } from '@/hooks/use-themes';
+import { clsx } from 'clsx';
 
 const ThemeSwitch = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
     const { resolvedTheme, setTheme } = useTheme();
@@ -41,14 +42,14 @@ const ThemeSwitch = ({ className, ...props }: React.HTMLAttributes<HTMLDivElemen
             <Switch
                 checked={checked}
                 onCheckedChange={handleCheckedChange}
-                className={cn(
+                className={clsx(
                     // root (track)
-                    'peer absolute inset-0 h-full w-full rounded-full bg-input! transition-colors',
+                    'peer absolute inset-0 size-full min-w-14 min-h-7 rounded-full bg-input! transition-colors',
                     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
                     // tune the default thumb size & z-index so it slides over icons
-                    '[&>span]:size-5 [&>span]:rounded-full [&>span]:bg-background [&>span]:shadow [&>span]:z-10',
+                    '[&>span]:size-5! [&>span]:rounded-full [&>span]:bg-background [&>span]:shadow [&>span]:z-10',
                     // override default translate distances so the thumb moves across 20px track padding + icon spacing
-                    'data-[state=unchecked]:[&>span]:translate-x-1',
+                    'data-[state=unchecked]:[&>span]:translate-x-1.5',
                     'data-[state=checked]:[&>span]:translate-x-[28px]', // 44 ≈ w-20(80) - padding - thumb(28)
                 )}
             />

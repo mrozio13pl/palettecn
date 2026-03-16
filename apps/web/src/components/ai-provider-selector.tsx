@@ -145,7 +145,7 @@ export function ProviderPicker() {
                                     <MenubarSubContent>
                                         {providerState?.isActive ? (
                                             <>
-                                                {providerState.models
+                                                {[...providerState.models]
                                                     .toReversed()
                                                     .map((model, index) => (
                                                         <MenubarItem
