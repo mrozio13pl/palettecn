@@ -7,10 +7,12 @@
         "dev": "turbo run dev",
         "format": "lint-staged",
         "prepublishOnly": "npm run build",
+        "release": "bumpp -r",
         "prepare": "husky"
     },
     "devDependencies": {
         "@types/node": "^25.5.0",
+        "bumpp": "^11.0.1",
         "husky": "^9.1.7",
         "lint-staged": "^16.4.0",
         "oxfmt": "^0.40.0",
