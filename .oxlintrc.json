@@ -3,6 +3,7 @@
     "ignorePatterns": [
         ".output",
         "dist",
+        "dist-electron",
         "node_modules",
         "pnpm-lock.yaml",
         "*.tsbuildinfo",

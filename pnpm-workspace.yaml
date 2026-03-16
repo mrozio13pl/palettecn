@@ -1,8 +1,11 @@
+packages:
+    - 'apps/*'
+    - 'packages/*'
 onlyBuiltDependencies:
+    - '@parcel/watcher'
+    - electron
+    - electron-winstaller
     - esbuild
     - sharp
     - unrs-resolver
     - workerd
-packages:
-    - 'apps/*'
-    - 'packages/*'

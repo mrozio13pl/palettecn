@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect width="256" height="256" fill="none" />
+
+  <path
+    d="M208 128
+       C192 144, 160 176, 128 208"
+    fill="none"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-width="24"
+  />
+
+  <path
+    d="M192 40
+       C144 64, 112 96, 96 128
+       C80 160, 64 176, 40 192"
+    fill="none"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-width="24"
+  />
+</svg>

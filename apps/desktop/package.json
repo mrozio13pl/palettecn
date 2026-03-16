@@ -1,0 +1,95 @@
+{
+    "name": "@palettecn/desktop",
+    "version": "0.0.0",
+    "private": true,
+    "author": {
+        "name": "mrozio13pl",
+        "email": "mrozio13pl@gmail.com"
+    },
+    "repository": "mrozio13pl/palettecn",
+    "type": "commonjs",
+    "main": "dist/main.js",
+    "scripts": {
+        "build": "tsdown",
+        "build:icons": "node scripts/icons.mjs",
+        "build:executables": "electron-builder --dir && electron-builder",
+        "build:mac": "electron-builder --mac",
+        "build:win": "electron-builder --win",
+        "build:linux": "electron-builder --linux",
+        "dev:electron": "wait-on http://localhost:3000 && node scripts/dev.mjs",
+        "start": "electron ."
+    },
+    "dependencies": {
+        "get-port": "^7.1.0"
+    },
+    "devDependencies": {
+        "@parcel/watcher": "^2.5.6",
+        "@types/node": "^25.5.0",
+        "dmg-license": "^1.0.11",
+        "electron": "^41.0.2",
+        "electron-builder": "^26.8.1",
+        "sharp": "^0.34.5",
+        "tsdown": "^0.21.2",
+        "typescript": "^5.9.3",
+        "wait-on": "^9.0.4",
+        "which": "^6.0.1"
+    },
+    "build": {
+        "appId": "com.mrozio13pl.palettecn",
+        "productName": "palettecn",
+        "directories": {
+            "output": "dist-electron"
+        },
+        "files": [
+            "dist/**/*",
+            "!node_modules/**/*"
+        ],
+        "extraResources": [
+            {
+                "from": "../web/.output",
+                "to": "server",
+                "filter": [
+                    "**/*"
+                ]
+            }
+        ],
+        "mac": {
+            "target": [
+                {
+                    "target": "dmg",
+                    "arch": [
+                        "arm64",
+                        "x64"
+                    ]
+                },
+                {
+                    "target": "zip",
+                    "arch": [
+                        "arm64",
+                        "x64"
+                    ]
+                }
+            ],
+            "category": "public.app-category.developer-tools",
+            "icon": "dist-electron/icons/icon.icns"
+        },
+        "linux": {
+            "target": [
+                {
+                    "target": "AppImage",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ],
+            "icon": "dist-electron/icons/",
+            "category": "Development"
+        },
+        "win": {
+            "target": [
+                "nsis"
+            ],
+            "icon": "dist-electron/icons/icon.ico"
+        }
+    }
+}

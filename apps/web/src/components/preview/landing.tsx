@@ -27,7 +27,7 @@ export function LandingPage() {
                     <WordRotate
                         duration={4000}
                         words={['Design', 'Create', 'Generate']}
-                        className="sm:w-68 w-40 text-right"
+                        className="sm:w-60 lg:w-56 w-40 text-right"
                     />{' '}
                     <span className="text-primary mr-12 sm:mr-0">shadcn/ui</span> themes with{' '}
                     <span className="bg-primary text-primary-foreground px-2 rounded-sm">AI</span>
@@ -48,7 +48,7 @@ export function LandingPage() {
 
                 <div className="opacity-50 sm:w-xl w-3xs flex justify-center items-center [&_svg]:min-w-6 [&_svg]:fill-border text-border my-12">
                     <CloverIcon className="-rotate-135" />
-                    <Separator className="py-px" />
+                    <Separator className="py-px w-full" />
                     <CloverIcon className="rotate-45" />
                 </div>
 
