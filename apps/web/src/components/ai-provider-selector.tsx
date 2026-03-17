@@ -1,3 +1,4 @@
+// oxlint-disable eslint-plugin-unicorn/no-array-reverse
 import { Claude, Gemini, type IconType, Kimi, OpenAI, ZAI } from '@lobehub/icons';
 import { type Provider, providerDisplay, providers } from '@palettecn/shared';
 import { useMemo, useState } from 'react';
@@ -146,7 +147,7 @@ export function ProviderPicker() {
                                         {providerState?.isActive ? (
                                             <>
                                                 {[...providerState.models]
-                                                    .toReversed()
+                                                    .reverse()
                                                     .map((model, index) => (
                                                         <MenubarItem
                                                             key={index}
