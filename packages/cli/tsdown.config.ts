@@ -11,6 +11,7 @@ export default defineConfig({
                 force: true,
             });
             globalLogger.success('Copied the web app into the bundle');
+            await fs.rm('./dist/web/server/package.json');
         }
     },
     deps: {
