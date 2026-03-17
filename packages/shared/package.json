@@ -19,8 +19,8 @@
         "dev": "tsdown --watch"
     },
     "devDependencies": {
-        "@types/node": "^25.5.0",
-        "tsdown": "^0.21.2",
-        "typescript": "^5.9.3"
+        "@types/node": "catalog:types",
+        "tsdown": "catalog:build",
+        "typescript": "catalog:build"
     }
 }

@@ -10,14 +10,17 @@
         "release": "bumpp -r",
         "prepare": "husky"
     },
+    "dependencies": {
+        "@types/node": "catalog:types"
+    },
     "devDependencies": {
-        "@types/node": "^25.5.0",
         "bumpp": "^11.0.1",
         "husky": "^9.1.7",
         "lint-staged": "^16.4.0",
-        "oxfmt": "^0.40.0",
-        "oxlint": "^1.55.0",
-        "turbo": "^2.8.17"
+        "oxfmt": "^0.41.0",
+        "oxlint": "^1.56.0",
+        "turbo": "^2.8.17",
+        "typescript": "^5.9.3"
     },
     "lint-staged": {
         "*.{js,ts,tsx}": "oxlint --fix",

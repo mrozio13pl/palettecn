@@ -20,10 +20,13 @@
         "opener": "^1.5.2"
     },
     "devDependencies": {
-        "@types/node": "^25.5.0",
+        "@types/node": "catalog:types",
         "@types/opener": "^1.4.3",
         "cross-env": "^10.1.0",
-        "tsdown": "^0.21.2",
-        "typescript": "^5.9.3"
+        "tsdown": "catalog:build",
+        "typescript": "catalog:build"
+    },
+    "engines": {
+        "node": ">=22"
     }
 }
