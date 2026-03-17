@@ -1,6 +1,6 @@
 {
     "name": "palettecn",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "repository": "mrozio13pl/palettecn",
     "bin": "dist/index.mjs",
     "files": [
