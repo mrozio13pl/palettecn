@@ -1,12 +1,10 @@
 import { randomBytes, createCipheriv, createDecipheriv } from 'node:crypto';
 import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'node:fs';
-import { join } from 'node:path';
-import envPaths from 'env-paths';
 import type { Provider } from '@palettecn/shared';
+import { CONFIG_DIR, KEYS_FILE_PATH, MASTER_KEY_PATH } from './paths';
 
 export type ProvidersStorageType = Partial<Record<Provider, string>>;
 
-const SERVICE = 'palettecn';
 const ALGORITHM = 'aes-256-gcm';
 
 interface EncryptedPayload {
@@ -14,10 +12,6 @@ interface EncryptedPayload {
     data: string;
     tag: string;
 }
-
-const CONFIG_DIR = envPaths(SERVICE).config;
-const FILE_PATH = join(CONFIG_DIR, 'keys.enc.json');
-const MASTER_KEY_PATH = join(CONFIG_DIR, 'master.key');
 
 function getMasterKey(): Buffer {
     if (existsSync(MASTER_KEY_PATH)) {
@@ -58,16 +52,16 @@ function save(data: ProvidersStorageType): void {
     }
 
     // The JSON file doesn't need strict permissions because it is fully encrypted
-    writeFileSync(FILE_PATH, JSON.stringify(payload, null, 2), 'utf8');
+    writeFileSync(KEYS_FILE_PATH, JSON.stringify(payload, null, 2), 'utf8');
 }
 
 function load(): ProvidersStorageType | undefined {
-    if (!existsSync(FILE_PATH)) {
+    if (!existsSync(KEYS_FILE_PATH)) {
         return undefined;
     }
 
     try {
-        const fileContent = readFileSync(FILE_PATH, 'utf8');
+        const fileContent = readFileSync(KEYS_FILE_PATH, 'utf8');
         const { iv, data, tag }: EncryptedPayload = JSON.parse(fileContent);
 
         const key = getMasterKey();

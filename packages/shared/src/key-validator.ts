@@ -1,5 +1,5 @@
 import { generateText, type LanguageModel } from 'ai';
-import type { Provider } from '@palettecn/shared';
+import type { Provider } from './providers';
 import { initProvider } from './initialize-provider';
 
 export async function validateApiKey(providerType: Provider, apiKey: string): Promise<boolean> {

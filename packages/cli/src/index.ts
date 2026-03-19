@@ -1,13 +1,32 @@
 #!/usr/bin/env node
-import opener from 'opener';
-import getPort, { portNumbers } from 'get-port';
+import { name, version, description } from '@/package.json';
+import { cli, command } from 'cleye';
 
-const freePort = await getPort({
-    port: [3600, ...portNumbers(36_000, 46_000)],
+const argv = cli({
+    name,
+    version,
+    help: {
+        description,
+        examples: ['palettecn app/globals.css'],
+    },
+    parameters: ['[css path]'],
+    commands: [
+        command({
+            name: 'web',
+            help: {
+                description: 'Opens a web app in the browser for palletecn',
+            },
+        }),
+    ],
 });
-process.env.PORT = freePort.toString();
 
-// @ts-expect-error imported at build-time
-await import('./web/server/index.mjs');
-
-opener(`http://127.0.0.1:${freePort}`);
+switch (argv.command) {
+    case 'web':
+        await import('@/commands/web');
+        break;
+    default: {
+        const { uiCommand } = await import('@/commands/ui');
+        uiCommand(argv._.cssPath);
+        break;
+    }
+}

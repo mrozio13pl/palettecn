@@ -3,7 +3,7 @@ import { createAnthropic, AnthropicProvider } from '@ai-sdk/anthropic';
 import { createGoogleGenerativeAI, GoogleGenerativeAIProvider } from '@ai-sdk/google';
 import { createMoonshotAI, MoonshotAIProvider } from '@ai-sdk/moonshotai';
 import { createZhipu, ZhipuProvider } from 'zhipu-ai-provider';
-import { Provider } from '@palettecn/shared';
+import type { Provider } from './providers';
 
 export function initProvider<T extends Provider>(
     providerType: T,

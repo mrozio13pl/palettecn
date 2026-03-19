@@ -3,8 +3,7 @@ import { createServerFn } from '@tanstack/react-start';
 import { zodValidator } from '@tanstack/zod-adapter';
 import { providers } from '@palettecn/shared';
 import { ProvidersStorage } from '@palettecn/local';
-import { validateApiKey } from '@/lib/ai/key-validator';
-import { getAvailableModels } from '@/lib/ai/model-list';
+import { getAvailableModels, validateApiKey } from '@palettecn/shared';
 
 export const submitApiKey = createServerFn()
     .inputValidator(

@@ -1,5 +1,9 @@
-import type { ProviderState, ProviderStateList } from '@/lib/types';
-import { providers, type Provider } from '@palettecn/shared';
+import {
+    providers,
+    type Provider,
+    type ProviderState,
+    type ProviderStateList,
+} from '@palettecn/shared';
 import { create } from 'zustand';
 
 interface ProvidersState {

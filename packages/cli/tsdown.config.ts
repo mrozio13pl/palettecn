@@ -14,7 +14,13 @@ export default defineConfig({
             await fs.rm('./dist/web/server/package.json');
         }
     },
+    platform: 'node',
+    env: {
+        NODE_ENV: 'production',
+    },
+    minify: true,
     deps: {
-        neverBundle: ['./web/server/index.mjs'],
+        neverBundle: ['../web/server/index.mjs'],
+        onlyBundle: false,
     },
 });

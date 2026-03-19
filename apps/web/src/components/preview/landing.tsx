@@ -12,7 +12,7 @@ import { useState } from 'react';
 import { isLocal } from '@/lib/utils';
 import { Snippet } from '../ui/snippet';
 
-const command = 'npx palettecn';
+const command = 'npx palettecn web';
 
 export function LandingPage() {
     const { theme } = useTheme();

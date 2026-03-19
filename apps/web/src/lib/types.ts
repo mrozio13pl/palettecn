@@ -1,35 +1,10 @@
-import type { DeepPartial, InferUITool, UIMessage } from 'ai';
-import type { generateThemeTool } from '@/lib/ai-tools/generate-theme';
-import type { z } from 'zod';
-import type { shadcnStylesSchema, shadcnThemeSchema } from '@/lib/schemas';
-import type { Provider } from '@palettecn/shared';
-
-export type ShadcnThemeStyles = z.infer<typeof shadcnStylesSchema>;
-export type ShadcnTheme = z.infer<typeof shadcnThemeSchema>;
-
-export type ChatTools = {
-    generateTheme: InferUITool<ReturnType<typeof generateThemeTool>>;
-};
-
-export type ChatDataParts = {
-    theme:
-        | {
-              status: 'streaming';
-              styles: DeepPartial<ShadcnThemeStyles>;
-          }
-        | {
-              status: 'streaming';
-              styles: DeepPartial<ShadcnThemeStyles>;
-          };
-};
-
-export type ChatMessage = UIMessage<
-    {
-        createdAt: string;
-    },
+export type {
+    ChatMessage,
     ChatDataParts,
-    ChatTools
->;
+    ChatTools,
+    ShadcnTheme,
+    ShadcnThemeStyles,
+} from '@palettecn/shared/types';
 
 export type FontCategory = 'sans-serif' | 'serif' | 'display' | 'handwriting' | 'monospace';
 type FontStyle = 'normal' | 'italic';
@@ -50,19 +25,3 @@ export interface GoogleFont {
 }
 
 export type ColorMode = 'oklch' | 'hex' | 'hsl' | 'rgb';
-
-export interface ModelInfo {
-    id: string;
-    name: string;
-}
-
-export type ProviderState =
-    | {
-          isActive: true;
-          models: Array<ModelInfo>;
-      }
-    | {
-          isActive: false;
-      };
-
-export type ProviderStateList = Record<Provider, ProviderState>;

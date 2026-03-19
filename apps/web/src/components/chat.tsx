@@ -69,10 +69,11 @@ export const Chat = ({ ref }: { ref: React.RefObject<{ resetChat: () => void } |
         }),
         onData: (dataPart) => {
             if (dataPart.type === 'data-theme') {
-                if (dataPart.data.styles.id?.length === 16) {
-                    appendThemes(dataPart.data.styles as any);
-                    setCurrentTheme(dataPart.data.styles as any);
-                    setStreamedData(dataPart.data.styles);
+                const data = dataPart.data as any;
+                if (data.styles.id?.length === 16) {
+                    appendThemes(data.styles);
+                    setCurrentTheme(data.styles);
+                    setStreamedData(data.styles);
                 }
             }
         },

@@ -10,13 +10,34 @@
     "types": "dist/index.d.mts",
     "exports": {
         ".": {
-            "import": "./dist/index.mjs",
-            "types": "./dist/index.d.mts"
+            "types": "./dist/index.d.mts",
+            "import": "./dist/index.mjs"
+        },
+        "./ai-tools": {
+            "types": "./dist/ai-tools.d.mts",
+            "import": "./dist/ai-tools.mjs"
+        },
+        "./schemas": {
+            "types": "./dist/schemas.d.mts",
+            "import": "./dist/schemas.mjs"
+        },
+        "./types": {
+            "types": "./dist/types.d.mts",
+            "import": "./dist/types.mjs"
         }
     },
     "scripts": {
         "build": "tsdown",
         "dev": "tsdown --watch"
+    },
+    "dependencies": {
+        "@ai-sdk/anthropic": "^3.0.58",
+        "@ai-sdk/google": "^3.0.43",
+        "@ai-sdk/moonshotai": "^2.0.10",
+        "@ai-sdk/openai": "^3.0.41",
+        "ai": "catalog:lib",
+        "zhipu-ai-provider": "^0.2.2",
+        "zod": "catalog:lib"
     },
     "devDependencies": {
         "@types/node": "catalog:types",

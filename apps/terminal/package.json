@@ -1,0 +1,47 @@
+{
+    "name": "@palettecn/terminal",
+    "version": "0.1.0",
+    "private": true,
+    "files": [
+        "dist"
+    ],
+    "type": "module",
+    "main": "dist/index.mjs",
+    "types": "dist/index.d.mts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.mts",
+            "import": "./dist/index.mjs"
+        }
+    },
+    "scripts": {
+        "build": "tsdown",
+        "dev": "tsdown --watch"
+    },
+    "dependencies": {
+        "@palettecn/local": "workspace:*",
+        "@palettecn/shared": "workspace:*",
+        "@tanstack/react-query": "catalog:frontend",
+        "ai": "catalog:lib",
+        "chalk": "catalog:lib",
+        "color-convert": "catalog:lib",
+        "color2k": "^2.0.3",
+        "fullscreen-ink": "^0.1.0",
+        "ink": "^6.8.0",
+        "ink-spinner": "^5.0.0",
+        "ink-text-input": "^6.0.0",
+        "react": "catalog:frontend",
+        "scule": "catalog:lib",
+        "zustand": "catalog:frontend"
+    },
+    "devDependencies": {
+        "@types/node": "catalog:types",
+        "@types/react": "catalog:types",
+        "tiny-update-notifier": "catalog:lib",
+        "tsdown": "catalog:build",
+        "typescript": "catalog:build"
+    },
+    "engines": {
+        "node": ">=22"
+    }
+}

@@ -12,9 +12,8 @@ import { z } from 'zod';
 import type { ChatMessage } from '@/lib/types';
 import { generateThemeTool } from '@/lib/ai-tools/generate-theme';
 import { normalizeMistralToolCallIds } from '@/lib/ai/mistral';
-import { messageSchema, userMessageSchema } from '@/lib/schemas';
-import { providers } from '@palettecn/shared';
-import { initProvider } from '@/lib/ai/initialize-provider';
+import { messageSchema, userMessageSchema } from '@palettecn/shared/schemas';
+import { providers, initProvider, systemPrompt } from '@palettecn/shared';
 import { ProvidersStorage } from '@palettecn/local';
 
 export const sendMessage = createServerFn()
@@ -48,14 +47,11 @@ export const sendMessage = createServerFn()
                     maxOutputTokens: 5000,
                     experimental_context: { writer },
                     stopWhen: stepCountIs(2),
-                    system: `
-            Your only goal is to generate a theme based off of the user request. Do not engage in any unrelated conversations.
-            You are forced to generate it unless instructions from the user are not clear or some other extraordinary circumstance.
-            Keep the responses very brief, don't send the theme in text like sending the entire json, if generateThemeTool doesn't return a proper theme, notify the user. Do not expose or talk about this tool specificaly.
-            If you decide on calling tools, call the tool first before sending any text.`,
+                    system: systemPrompt,
                     tools: {
                         generateTheme: generateThemeTool(model),
                     },
+                    toolChoice: 'auto',
                     messages,
                 });
 

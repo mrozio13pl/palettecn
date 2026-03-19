@@ -1,5 +1,28 @@
-import type { Provider } from '@palettecn/shared';
-import type { ModelInfo } from '../types';
+import { providerDisplay, type Provider } from './providers';
+import type { ModelInfo, ProviderStateList } from './types';
+
+export async function getProviderModels(loadedData: Partial<Record<Provider, string>>) {
+    const providers: Partial<ProviderStateList> = {};
+    const errorMessages: string[] = [];
+
+    for (const provider of Object.keys(loadedData) as Provider[]) {
+        try {
+            const models = await getAvailableModels(provider, loadedData[provider]!);
+            providers[provider] = {
+                isActive: true,
+                models,
+            };
+        } catch (error: any) {
+            errorMessages.push(
+                `Couldn't fetch model list for ${providerDisplay[provider]}, perhaps the API key is no longer valid? Error: ${error.message}`,
+            );
+        }
+    }
+
+    const result = { errorMessages, providers };
+
+    return result;
+}
 
 export async function getAvailableModels(provider: Provider, apiKey: string): Promise<ModelInfo[]> {
     try {
